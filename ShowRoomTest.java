@@ -8,7 +8,7 @@ public static void main(String[] args) {
 	boolean isPresent=false;
 	int priceAvailable=0;
 	
-	Car [] car = new Car [1];
+	CarShowRoom [] car = new CarShowRoom [1];
 	String userEntry = JOptionPane.showInputDialog( "please choose from below  \n  + to add new car  \n $ to sell car  "
 			+ "\n # to view all product ");	
 	
@@ -18,7 +18,7 @@ public static void main(String[] args) {
 	case "+":
 		String carCountString = JOptionPane.showInputDialog("please enter cars number" );
 		int carCount = Integer.parseInt(carCountString);
-		 cars = new Car [carCount];
+		 car = new CarShowRoom [carCount];
 		 String name = "";
 		 String brand = "";
 		 String model = "";
@@ -27,7 +27,7 @@ public static void main(String[] args) {
 	
 		 int speed= 0;
 		
-		 for (int i = 0; i < cars.length; i++) {
+		 for (int i = 0; i < car.length; i++) {
 				validEntry = true ;
 				String productType = 	JOptionPane.showInputDialog("please to add new car "
 						+ "enter 1 \n to add used car enter 2 ");
@@ -46,8 +46,8 @@ public static void main(String[] args) {
 					 bodyType = JOptionPane.showInputDialog("please enter body type  ");
 					
 
-					Car newCar = new NewCar(speed, name, brand, model, price, bodyType);
-					cars [i]= newCar;
+					 CarShowRoom newCar = new NewCar(speed, name, brand, model, price, bodyType);
+					car [i]= newCar;
 					break;
 					
 					
@@ -67,7 +67,7 @@ public static void main(String[] args) {
 				
 
 				Car usedCar = new UsedCar(kiloMeter, year, owner, ownerName, ownerNumber, name, brand, model, price, bodyType);
-				cars [i]= usedCar;
+				car [i]= usedCar;
 					break;
 
 				default:
@@ -89,8 +89,8 @@ case "$":
     String sellingPriceString = JOptionPane.showInputDialog("please enter a price ? ");
     double  sellingPrice = Double.parseDouble(sellingPriceString);
 	
-    for (int j = 0; j < cars.length; j++) {
-		if (cars[j].getPrice() >= sellingPrice ){
+    for (int j = 0; j < car.length; j++) {
+		if (car[j].getPrice() >= sellingPrice ){
 			
 			isPresent= true;
 			priceAvailable=j;
@@ -106,9 +106,9 @@ case "$":
 		break;
 case "#":
 	validEntry = true ;
-	if (cars.length >0 ){
-		for (int j = 0; j < cars.length; j++) {
-			cars[j].printCarDetails();
+	if (car.length >0 ){
+		for (int j = 0; j < car.length; j++) {
+			car[j].printDetails();
 		}
 	}
 
